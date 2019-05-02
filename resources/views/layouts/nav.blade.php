@@ -52,7 +52,7 @@
                                     <div class="section2_cart_dropdown dropdown-menu">
                                         <div class="dropdown-cart-products">
                                             @foreach (Cart::content() as $item)
-                                                {{$item->model->product_id}}
+                                                {{$item->options}}
                                             @endforeach
                                             <div class="product">
                                                 <div class="product-details">

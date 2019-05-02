@@ -86,6 +86,8 @@
                                                                 <input name="product_id" type="hidden" value="{{$product->product_id}}">
                                                                 <input name="product_name" type="hidden" value="{{$product->product_name}}">
                                                                 <input name="product_price" type="hidden" value="{{$product->product_price}}">
+                                                                <input name="product_color" type="hidden" value="{{$product->product_color}}">
+                                                                <input name="product_img1" type="hidden" value="{{$product->product_img1}}">
                                                                 <button class="btn" type="submit">
                                                                     Add to Cart
                                                                 </button>

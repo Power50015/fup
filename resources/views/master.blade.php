@@ -1,0 +1,7 @@
+@include('layouts.head')
+@include('layouts.topheader')
+@include('layouts.nav')
+@yield('content')
+@include('layouts.footer')
+@include('layouts.copyright')
+@include('layouts.jssrc')

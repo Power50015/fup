@@ -474,9 +474,15 @@
                                                             <a href="#" class="product_btn add_wishlist" title="Add to Wishlist">
                                                                 <i class="fa fa-heart"></i>
                                                             </a>
-                                                            <button class="btn" type="button">
-                                                                Add to Cart
-                                                            </button>
+                                                             <form method="post" action="{{ route('cart.store')}}">
+                                                                {{ csrf_field() }}
+                                                                <input name="product_id" type="hidden" value="{{$product1->product_id}}">
+                                                                <input name="product_name" type="hidden" value="{{$product1->product_name}}">
+                                                                <input name="product_price" type="hidden" value="{{$product1->product_price}}">
+                                                                <button class="btn" type="submit">
+                                                                    Add to Cart
+                                                                </button>
+                                                            </form>
                                                             <a href="#" class="product_btn add_compare" title="Add to Compare">
                                                                 <i class="fa fa-bar-chart"></i>
                                                             </a>
@@ -499,7 +505,7 @@
                                                         </ul>
                                                         @endif
                                                         <div class="product_img">
-                                                            <a href="#">
+                                                            <a href="{{route('product.show', $product1->product_id)}}">
                                                                 <img class="first-img" src="{{ asset('images/product/' . $product2->product_img1)}}" alt="" width="300" height="300">
                                                                 <img class="hover-img" src="{{ asset('images/product/' . $product2->product_img2)}}" alt="" width="300" height="300">
                                                             </a>
@@ -534,9 +540,15 @@
                                                             <a href="#" class="product_btn add_wishlist" title="Add to Wishlist">
                                                                 <i class="fa fa-heart"></i>
                                                             </a>
-                                                            <button class="btn" type="button">
-                                                                Add to Cart
-                                                            </button>
+                                                             <form method="post" action="{{ route('cart.store')}}">
+                                                                {{ csrf_field() }}
+                                                                <input name="product_id" type="hidden" value="{{$product2->product_id}}">
+                                                                <input name="product_name" type="hidden" value="{{$product2->product_name}}">
+                                                                <input name="product_price" type="hidden" value="{{$product2->product_price}}">
+                                                                <button class="btn" type="submit">
+                                                                    Add to Cart
+                                                                </button>
+                                                            </form>
                                                             <a href="#" class="product_btn add_compare" title="Add to Compare">
                                                                 <i class="fa fa-bar-chart"></i>
                                                             </a>

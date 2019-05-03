@@ -12,11 +12,12 @@
 	<script src="{{ asset('js/slick_electranic.js')}}"></script>
     <script src="{{ asset('js/slick.min.js')}}"></script>
     <script src="{{ asset('js/jquery-ui.min.js')}}"></script>
+    @yield('js')
     <!-- Shop js -->
     <script src="{{ asset('js/shop.js')}}"></script>
     <!-- Custom js -->
     <script src="{{ asset('js/custom.js')}}"></script>
-    @yield('js')
+    
 </body>
 
 </html>

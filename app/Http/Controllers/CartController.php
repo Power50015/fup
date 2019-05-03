@@ -16,7 +16,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return view('cart');
     }
 
     /**
@@ -37,20 +37,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        // $cartItem = Cart::add($request->product_id,  $request->product_name,  1,  $request->product_price, ["size" => "fd"]);
-        $cartItem = Cart::add([
-            [
-                'id' => $request->product_id,
-                'name' => $request->product_name,
-                'qty' => 1,
-                'price' => $request->product_price,
-                'weight' => 550,
-                'options' => [
-                    'product_color' => $request->product_color,
-                    'product_img1' => $request->product_img1
-                ]
-            ]
-        ]);
+        $cartItem = Cart::add($request->product_id,  $request->product_name,  1,  $request->product_price)->associate('App\Product');
         return redirect()->route('cart.index')->with('success_message', 'Item Added to cart successfully');
     }
 
@@ -96,6 +83,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+        return redirect()->route('index');
     }
 }

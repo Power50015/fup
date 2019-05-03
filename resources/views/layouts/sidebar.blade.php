@@ -64,7 +64,7 @@
                                 <img src="images/shop/electronics/add.jpg" title="banner" alt="banner">
                             </a>
                         </div>
-                        <!-- sidebar_widget end -->>
+                        <!-- sidebar_widget end -->
                         <!-- sidebar_widget end -->
                         <div class="sidebar_widget">
                             <h4>offer products</h4>

@@ -24,14 +24,16 @@ Author: Webstrot
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.css')}}" />
+    @yield('css')
     <!-- Animation Css -->
     <link rel="stylesheet" href="{{ asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css')}}">
     <!-- Flaticon Css -->
     <link rel="stylesheet" href="{{ asset('css/flaticon.css')}}">
+    
     <!-- Style CSS-->
     <link rel="stylesheet" href="{{ asset('css/shop_electranics.css')}}">
-    @yield('css')
+    
     
 </head>
 

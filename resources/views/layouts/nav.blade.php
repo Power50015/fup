@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-3 hidden-xs">
                         <div class="logo_wrapper">
-                            <a href="index.html"><img src="images/logo_white.png" alt="logo_img" /></a>
+                            <a href="{{route('index')}}"><img src="{{ asset('images/logo_white.png')}}" alt="logo_img" /></a>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-8 hidden-xs">
@@ -25,7 +25,7 @@
                             </button>
                         </div>
                         <div class="logo_wrapper visible-xs">
-                            <a href="../index.html"><img src="images/logo_white.png" alt="logo_img" /></a>
+                            <a href="{{route('index')}}"><img src="{{ asset('images/logo_white.png')}}" alt="logo_img" /></a>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-1 hidden-xs">
@@ -52,57 +52,48 @@
                                     <div class="section2_cart_dropdown dropdown-menu">
                                         <div class="dropdown-cart-products">
                                             @foreach (Cart::content() as $item)
-                                                {{$item->options}}
+                                            <div class="product">
+                                                <div class="product-details">
+                                                    <h4 class="product-title">
+                                                    <a href="{{ route('product.show', $item->model->product_id)}}">{{$item->model->product_name}}</a>
+													</h4>
+                                                    <span class="cart-product-info">
+														<span class="cart-product-qty">{{$item->qty}}</span> x {{$item->model->presentPrice()}}
+                                                    </span>
+                                                </div>
+                                                <!-- End .product-details -->
+                                                <figure class="product-image-container">
+                                                    <a href="#" class="product-image">
+                                                        <img src="{{ asset('images/product/' . $item->model->product_img1)}}" alt="product">
+                                                    </a>
+                                                <form action="{{ route('cart.destroy', $item->rowId)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn-remove" title="Remove Product" type="submit">
+                                                        <i class="fa fa-close"></i>
+                                                    </button>
+                                                </form>
+                                                </figure>
+                                            </div>
+                                            <!-- End .product -->
                                             @endforeach
-                                            <div class="product">
-                                                <div class="product-details">
-                                                    <h4 class="product-title">
-														<a href="product.html">White lumia 9001 </a>
-													</h4>
-                                                    <span class="cart-product-info">
-														<span class="cart-product-qty">1</span> x $99.00
-                                                    </span>
-                                                </div>
-                                                <!-- End .product-details -->
-                                                <figure class="product-image-container">
-                                                    <a href="#" class="product-image">
-                                                        <img src="images/shop/electronics/product-1.jpg" alt="product">
-                                                    </a>
-                                                    <a href="#" class="btn-remove" title="Remove Product">
-                                                        <i class="fa fa-close"></i>
-                                                    </a>
-                                                </figure>
-                                            </div>
-                                            <!-- End .product -->
-                                            <div class="product">
-                                                <div class="product-details">
-                                                    <h4 class="product-title">
-														<a href="product.html">Play Station 4   </a>
-													</h4>
-                                                    <span class="cart-product-info">
-														<span class="cart-product-qty">1</span> x $99.00
-                                                    </span>
-                                                </div>
-                                                <!-- End .product-details -->
-                                                <figure class="product-image-container">
-                                                    <a href="#" class="product-image">
-                                                        <img src="images/shop/electronics/product-2.jpg" alt="product">
-                                                    </a>
-                                                    <a href="#" class="btn-remove" title="Remove Product">
-                                                        <i class="fa fa-close"></i>
-                                                    </a>
-                                                </figure>
-                                            </div>
-                                            <!-- End .product -->
                                         </div>
                                         <!-- End .cart-product -->
                                         <div class="dropdown-cart-total">
+                                            <span>Total before tax</span>
+                                            <span class="cart-total-price">${{Cart::subtotal()}}</span>
+                                        </div>
+                                        <div class="dropdown-cart-total">
+                                            <span>Tax</span>
+                                            <span class="cart-total-price">${{Cart::tax()}}</span>
+                                        </div>
+                                        <div class="dropdown-cart-total">
                                             <span>Total</span>
-                                            <span class="cart-total-price">$198.00</span>
+                                            <span class="cart-total-price">${{Cart::total()}}</span>
                                         </div>
                                         <!-- End .dropdown-cart-total -->
                                         <div class="dropdown-cart-action">
-                                            <button class="btn btn_left">View Cart</button>
+                                            <a href="{{route('cart.index')}}" class="btn btn_left">View Cart</a>
                                             <button class="btn">Checkout</button>
                                         </div>
                                         <!-- End .dropdown-cart-total -->
@@ -133,7 +124,7 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="active">
-                                <a href="#">
+                                <a href="{{route('index')}}">
 									Home
 								</a>
                             </li>

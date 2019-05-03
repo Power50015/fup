@@ -47,7 +47,24 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::where('product_id', $id)->firstOrFail();
+        $alsoProduct = Product::where('product_id', '!=', $id)->inRandomOrder()->take(6)->get();
+        $i = 0;
+        $products1 = [];
+        $products2 = [];
+        foreach ($alsoProduct as $k => $x) {
+            if ($i < count($alsoProduct) / 2) {
+                $products1[$k] = $x;
+            } else {
+                $products2[$k] = $x;
+            }
+            $i = $i + 1;
+        }
+        return view('singleProduct')->with([
+            'product' => $product,
+            'products1'  =>  $products1,
+            'products2'  =>  $products2
+        ]);
     }
 
     /**

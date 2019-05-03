@@ -248,7 +248,7 @@
                         <li class="dropdown">
                             <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="lang">
-									<img src="images/shop/electronics/gb.png" alt="English" title="English">
+									<img src="{{ asset('images/shop/electronics/gb.png')}}" alt="English" title="English">
 									en
 								</span>
                                 <i class="fa fa-angle-down"></i>
@@ -258,7 +258,7 @@
                                     <a href="#">
                                         <span>English</span>
                                         <span>
-											<img src="images/shop/electronics/gb.png" alt="English" title="English" />
+											<img src="{{ asset('images/shop/electronics/gb.png')}}" alt="English" title="English" />
 										</span>
                                     </a>
                                 </li>
@@ -266,7 +266,7 @@
                                     <a href="#">
                                         <span>Deutsch</span>
                                         <span>
-											<img src="images/shop/electronics/de.png" alt="Deutsch" title="Deutsch" />
+											<img src="{{ asset('images/shop/electronics/de.png')}}" alt="Deutsch" title="Deutsch" />
 										</span>
                                     </a>
                                 </li>

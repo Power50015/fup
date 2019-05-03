@@ -58,7 +58,8 @@ a:focus {
     outline-offset: unset;
 }
 
-a:hover {
+a:hover,
+.btn-delete:hover {
     color: #4285f4;
     text-decoration: none;
     -webkit-transition: all 0.5s;
@@ -68,7 +69,8 @@ a:hover {
     transition: all 0.5s;
 }
 
-a {
+a,
+.btn-delete {
     color: #111111;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -3150,7 +3152,8 @@ select:focus {
     border-bottom-right-radius: 4px;
 }
 
-.cc_ps_cart_btn li:nth-child(2) a {
+.cc_ps_cart_btn li:nth-child(2) a,
+.add-btn {
     border: 0;
     box-shadow: none;
     background-color: #4385f5;
